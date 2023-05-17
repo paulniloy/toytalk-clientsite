@@ -11,6 +11,7 @@ import Login from './com/Login/Login';
 import Registration from './com/Registration/Registration';
 import Auth from './com/Authprovider/Auth';
 import Blog from './com/Blog/Blog';
+import Error from './com/Error page/Error';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "*",
+    element: <Error></Error>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
