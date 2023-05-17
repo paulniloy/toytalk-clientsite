@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from "../../../firebase.config"
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 
 
@@ -13,8 +13,14 @@ const Auth = ({children}) => {
     const [photourl, setphotourl] = useState('')
     console.log(username, photourl);
 
-    const profileupdate = (name, url) => {
+    const logout = () => {
+        signOut(auth)
+        .then()
+        .catch()
+    }
 
+    
+    const profileupdate = (name, url) => {
         updateProfile(auth.currentUser, {
             displayName : `${name}`, photoURL : `${url}`
         })
@@ -40,7 +46,7 @@ const Auth = ({children}) => {
     }
 
     const authinfo = {
-        google, signin, register, profileupdate, loggeduser, username, photourl
+        google, signin, register, profileupdate, loggeduser, username, photourl, logout
     }
 
     useEffect(()=>{

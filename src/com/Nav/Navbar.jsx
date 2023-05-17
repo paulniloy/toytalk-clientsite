@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
 
 const Navbar = () => {
-    const {loggeduser} = useContext(Authcontext);
+    const {loggeduser, logout} = useContext(Authcontext);
     
 
     const handlelogout = () =>{
-        
+        logout()
     }
 
 
