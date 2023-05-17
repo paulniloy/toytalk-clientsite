@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Authcontext } from '../Authprovider/Auth';
 
 const Registration = () => {
+
+    const {register} = useContext(Authcontext)
+    
+    const handleregister = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        register(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+    }
+    
+    
     return (
         <div>
-            <form  className='flex flex-col justify-center items-center p-10 m-10 w-3/4 mx-auto border'>
+            <form onSubmit={handleregister}  className='flex flex-col justify-center items-center p-10 m-10 w-3/4 mx-auto border'>
                 <div className='text-3xl mb-10'>Registration Page</div>
                 <div>
                     <div>
