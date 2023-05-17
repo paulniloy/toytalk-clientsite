@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Authcontext } from '../Authprovider/Auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+
+    const {google} = useContext(Authcontext);
+
+    const handlegoogle = () => {
+        google()
+        .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+          }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+          });
+    }
+    
+
+
     return (
         <div className='flex flex-col justify-center items-center p-10 m-10 w-3/4 mx-auto border'>
             <form >
@@ -32,6 +53,7 @@ const Login = () => {
                     <button className='rounded-full p-2 hover:bg-gray-900' ><IoLogoGithub className='h-10 w-10' /></button>
                 </div>
             </div> */}
+            <button onClick={handlegoogle}>google</button>
         </div>
     );
 };
