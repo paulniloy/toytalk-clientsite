@@ -13,6 +13,7 @@ import Auth from './com/Authprovider/Auth';
 import Blog from './com/Blog/Blog';
 import Error from './com/Error page/Error';
 import Private from './com/Privateroute/Private';
+import Addtoy from './com/addtoy/Addtoy';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Private><Blog></Blog></Private>
+      },
+      {
+        path: "/addtoy",
+        element: <Private><Addtoy></Addtoy></Private>
       }
     ]
   },

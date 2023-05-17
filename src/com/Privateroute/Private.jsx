@@ -7,14 +7,12 @@ const Private = ({children}) => {
     const {loggeduser, loader} = useContext(Authcontext);
 
     if(loader){
-        <div>loading...</div>
+         return <progress className="progress w-56"></progress>;
     }
     if(loggeduser){
         return children;
     }
-    return (
-        <Navigate to={"/login"}></Navigate>
-    );
+    return <Navigate to={"/login"}></Navigate>;
 };
 
 export default Private;

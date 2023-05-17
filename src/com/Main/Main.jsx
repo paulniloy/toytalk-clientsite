@@ -4,6 +4,8 @@ import toyone from "../../assets/toy1.jpg"
 import toytwo from "../../assets/toy2.jpg"
 import toythree from "../../assets/toy3.jpg"
 import toyfour from "../../assets/toy4.jpg"
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const Main = () => {
     return (
@@ -32,7 +34,7 @@ const Main = () => {
                         <img src={toythree} className="w-full" />
                     </div>
                     <div id="item4" className="carousel-item w-full">
-                    <img src={toyfour} className="w-full" />
+                        <img src={toyfour} className="w-full" />
                     </div>
                 </div>
                 <div className="flex justify-center w-full py-2 gap-2">
@@ -44,7 +46,21 @@ const Main = () => {
             </div>
             <div>
                 <div className='text-center text-6xl font-bold'>Shop By Category</div>
-                <div></div>
+                <div>
+                    <Tabs>
+                        <TabList>
+                            <Tab>Title 1</Tab>
+                            <Tab>Title 2</Tab>
+                        </TabList>
+
+                        <TabPanel>
+                            <h2>Any content 1</h2>
+                        </TabPanel>
+                        <TabPanel>
+                            <h2>Any content 2</h2>
+                        </TabPanel>
+                    </Tabs>
+                </div>
             </div>
             <div className='mb-10'>
                 <div className="hero min-h-screen bg-base-200">

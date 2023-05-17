@@ -19,7 +19,7 @@ const Navbar = () => {
     const conditional =
         <>
             <Link className='hover:bg-gray-200 px-2 rounded ' to={""}>My Toys</Link>
-            <Link className='hover:bg-gray-200 px-2 rounded ' to={""}>Add Toys</Link>
+            <Link className='hover:bg-gray-200 px-2 rounded ' to={"/addtoy"}>Add Toys</Link>
             <div className="indicator">
                 <span className="indicator-item badge bg-green-400"></span>
                 <div className="tooltip tooltip-bottom tooltip-primary" data-tip={username}>

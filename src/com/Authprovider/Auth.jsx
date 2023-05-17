@@ -14,7 +14,7 @@ const Auth = ({children}) => {
     const [loader, setloader] = useState(true);
 
     const logout = () => {
-        setloader(true)
+        setloader(true);
         return signOut(auth);
     }
 
@@ -54,18 +54,16 @@ const Auth = ({children}) => {
 
     useEffect(()=>{
         const unsubscribe =  onAuthStateChanged(auth, (user)=>{
-            if(user){
+                setloader(false);
                 const uid = user.uid;
                 setloggeduser(user)
-                setloader(false)
                 console.log(loggeduser);
                 setloggeduser(user);
                 setusername(user.displayName);
                 setphotourl(user.photoURL);
-            }
         })
         return ()=> {
-           return unsubscribe()
+           unsubscribe();
         }
     })
 
