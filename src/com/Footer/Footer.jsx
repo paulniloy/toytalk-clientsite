@@ -1,13 +1,14 @@
 import React from 'react';
 import logofooter from "../../assets/toysbrand.png"
 import { IoLogoFacebook, IoLogoGithub, IoLogoReddit, IoSend } from "react-icons/io5";
+import "./Footer.css"
 
 const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
-                    <img className='w-20' src={logofooter} alt="" />
+                    <img className='w-20 round' src={logofooter} alt="" />
                     <p className='text-3xl font-bold '>Toy Talk</p><span className='italic font-medium'>since 1992</span>
                 </div>
                 <div>

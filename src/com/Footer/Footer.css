@@ -1,0 +1,7 @@
+.round{
+    transition: all 1s;
+}
+
+.round:hover{
+    transform: rotate(360deg);
+}
