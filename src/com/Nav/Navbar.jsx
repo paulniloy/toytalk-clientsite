@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
 
 const Navbar = () => {
-    const {loggeduser, logout} = useContext(Authcontext);
-    
+    const { loggeduser, logout, photourl, username } = useContext(Authcontext);
 
-    const handlelogout = () =>{
+
+    const handlelogout = () => {
         logout()
     }
 
@@ -16,6 +16,12 @@ const Navbar = () => {
         <>
             <Link to={""}>My Toys</Link>
             <Link to={""}>Add Toys</Link>
+            <div className="indicator">
+                <span className="indicator-item badge bg-green-400"></span>
+                <div className="tooltip tooltip-bottom tooltip-primary" data-tip={username}>
+                    <img className='w-24 rounded-full' src={photourl} alt="" />
+                </div>
+            </div>
             <Link onClick={handlelogout} to={"/login"}>logout</Link>
         </>
 
@@ -31,7 +37,7 @@ const Navbar = () => {
                 <Link to={""}>All Toys</Link>
                 <Link to={"/blog"}>Blogs</Link>
                 {
-                    loggeduser? conditional : <Link to={"/login"}>Login</Link> 
+                    loggeduser ? conditional : <Link to={"/login"}>Login</Link>
                 }
             </div>
         </div>
