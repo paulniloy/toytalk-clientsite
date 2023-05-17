@@ -14,7 +14,7 @@ const Auth = ({children}) => {
     console.log(username, photourl);
 
     const profileupdate = (name, url) => {
-        
+
         updateProfile(auth.currentUser, {
             displayName : `${name}`, photoURL : `${url}`
         })
@@ -40,14 +40,15 @@ const Auth = ({children}) => {
     }
 
     const authinfo = {
-        google, signin, register, profileupdate
+        google, signin, register, profileupdate, loggeduser, username, photourl
     }
 
     useEffect(()=>{
         const unsubscribe =  onAuthStateChanged(auth, (user)=>{
             if(user){
                 const uid = user.uid;
-                console.log(user);
+                setloggeduser(user)
+                console.log(loggeduser);
                 setloggeduser(user);
                 setusername(user.displayName);
                 setphotourl(user.photoURL);
