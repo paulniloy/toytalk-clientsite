@@ -42,6 +42,10 @@ const Main = () => {
                     <a href="#item4" className="btn btn-xs">4</a>
                 </div>
             </div>
+            <div>
+                <div className='text-center text-6xl font-bold'>Shop By Category</div>
+                <div></div>
+            </div>
             <div className='mb-10'>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">

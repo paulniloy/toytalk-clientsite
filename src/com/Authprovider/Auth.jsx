@@ -1,6 +1,6 @@
-import React, { createContext, useEffect } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import app from "../../../firebase.config"
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 
 
 
@@ -8,6 +8,23 @@ export const Authcontext = createContext(null);
 const auth = getAuth(app);
 
 const Auth = ({children}) => {
+    const [loggeduser, setloggeduser] = useState('');
+    const [username, setusername] = useState('');
+    const [photourl, setphotourl] = useState('')
+    console.log(username, photourl);
+
+    const profileupdate = (name, url) => {
+        
+        updateProfile(auth.currentUser, {
+            displayName : `${name}`, photoURL : `${url}`
+        })
+        .then(()=>{
+            console.log('profile updated');
+        })
+        .catch((error)=>{
+            console.log('not updated');
+        })
+    }
 
     const signin = (email, password) =>{
         return signInWithEmailAndPassword(auth, email, password)
@@ -23,16 +40,17 @@ const Auth = ({children}) => {
     }
 
     const authinfo = {
-        google, signin, register
+        google, signin, register, profileupdate
     }
 
     useEffect(()=>{
         const unsubscribe =  onAuthStateChanged(auth, (user)=>{
             if(user){
                 const uid = user.uid;
-            }
-            else{
-                console.log('user is signed out');
+                console.log(user);
+                setloggeduser(user);
+                setusername(user.displayName);
+                setphotourl(user.photoURL);
             }
         })
         return ()=> {

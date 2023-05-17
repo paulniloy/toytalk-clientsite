@@ -4,16 +4,21 @@ import { Authcontext } from '../Authprovider/Auth';
 
 const Registration = () => {
 
-    const {register} = useContext(Authcontext)
+    const {register, profileupdate} = useContext(Authcontext)
     
     const handleregister = (event) =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        console.log(name, photo);
         register(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
+            profileupdate(name, photo)
+            
           })
           .catch((error) => {
             const errorCode = error.code;
