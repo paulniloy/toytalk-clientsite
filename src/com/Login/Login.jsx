@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { IoLogoGoogle } from "react-icons/io5";
 
 const Login = () => {
 
-    const {google} = useContext(Authcontext);
+    const {google, signin} = useContext(Authcontext);
 
     const handlegoogle = () => {
         google()
@@ -20,12 +21,28 @@ const Login = () => {
             const credential = GoogleAuthProvider.credentialFromError(error);
           });
     }
+
+    const handlelogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email =  form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        signin(email, password)
+        .then((userCredential)=>{
+            const user = userCredential.user
+        })
+        .catch((error)=>{
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        })
+    }
     
 
 
     return (
         <div className='flex flex-col justify-center items-center p-10 m-10 w-3/4 mx-auto border'>
-            <form >
+            <form onSubmit={handlelogin}>
                 <div className='text-3xl mb-10 text-center'>Login Page</div>
                 <div>
                     <div>
@@ -45,15 +62,7 @@ const Login = () => {
                     loggeduser ? <p className='text-green-400'>{success}</p> : <p className='text-red-400'>{error}</p>
                 } */}
             </form>
-            {/* <div className='flex justify-center gap-20 w-1/2 mx-auto'>
-                <div>
-                    <button className='shadow-lg rounded-full p-2 hover:bg-gray-900' ><IoLogoGoogle className='h-10 w-10' /></button>
-                </div>
-                <div>
-                    <button className='rounded-full p-2 hover:bg-gray-900' ><IoLogoGithub className='h-10 w-10' /></button>
-                </div>
-            </div> */}
-            <button onClick={handlegoogle}>google</button>
+            <button className='' onClick={handlegoogle}><IoLogoGoogle className='h-10 w-10'/></button>
         </div>
     );
 };
