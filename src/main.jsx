@@ -12,6 +12,7 @@ import Registration from './com/Registration/Registration';
 import Auth from './com/Authprovider/Auth';
 import Blog from './com/Blog/Blog';
 import Error from './com/Error page/Error';
+import Private from './com/Privateroute/Private';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog></Blog>
+        element: <Private><Blog></Blog></Private>
       }
     ]
   },

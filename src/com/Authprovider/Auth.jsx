@@ -10,17 +10,17 @@ const auth = getAuth(app);
 const Auth = ({children}) => {
     const [loggeduser, setloggeduser] = useState('');
     const [username, setusername] = useState('');
-    const [photourl, setphotourl] = useState('')
-    console.log(username, photourl);
+    const [photourl, setphotourl] = useState('');
+    const [loader, setloader] = useState(true);
 
     const logout = () => {
-        signOut(auth)
-        .then()
-        .catch()
+        setloader(true)
+        return signOut(auth);
     }
 
     
     const profileupdate = (name, url) => {
+        setloader(true);
         updateProfile(auth.currentUser, {
             displayName : `${name}`, photoURL : `${url}`
         })
@@ -33,20 +33,23 @@ const Auth = ({children}) => {
     }
 
     const signin = (email, password) =>{
+        setloader(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const register = (email, password) => {
+        setloader(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const google = () => {
+        setloader(true);
         const provider = new GoogleAuthProvider();
         return signInWithPopup(auth, provider)
     }
 
     const authinfo = {
-        google, signin, register, profileupdate, loggeduser, username, photourl, logout
+        google, signin, register, profileupdate, loggeduser, username, photourl, logout, loader
     }
 
     useEffect(()=>{
@@ -54,6 +57,7 @@ const Auth = ({children}) => {
             if(user){
                 const uid = user.uid;
                 setloggeduser(user)
+                setloader(false)
                 console.log(loggeduser);
                 setloggeduser(user);
                 setusername(user.displayName);

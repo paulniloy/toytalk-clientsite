@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { IoLogoGoogle } from "react-icons/io5";
@@ -8,20 +8,23 @@ const Login = () => {
 
     const {google, signin} = useContext(Authcontext);
 
+    const navigate = useNavigate();
+
     const handlegoogle = () => {
         google()
         .then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
-          }).catch((error) => {
+            navigate("/")
+        }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             const email = error.customData.email;
             const credential = GoogleAuthProvider.credentialFromError(error);
-          });
+        });
     }
-
+    
     const handlelogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -30,7 +33,9 @@ const Login = () => {
         console.log(email, password);
         signin(email, password)
         .then((userCredential)=>{
+            navigate("/")
             const user = userCredential.user
+            
         })
         .catch((error)=>{
             const errorCode = error.code;
