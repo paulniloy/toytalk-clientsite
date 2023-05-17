@@ -15,7 +15,7 @@ const Navbar = () => {
                 <Link to={""}>My Toys</Link>
                 <Link to={""}>Add Toys</Link>
                 <Link to={""}>Blogs</Link>
-                <Link to={""}>User profile</Link>
+                <Link to={"/login"}>Login</Link>
             </div>
         </div>
     );
