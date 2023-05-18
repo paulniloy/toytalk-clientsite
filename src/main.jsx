@@ -18,6 +18,7 @@ import Indeng from './com/indeng/Indeng';
 import Indmath from './com/indmath/Indmath';
 import Indlanguage from './com/Indlanguage/Indlanguage';
 import Alltoys from './com/Alltoys/Alltoys';
+import Toydetails from './com/Toydetails/Toydetails';
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
         path: "/language/:id",
         element: <Private><Indlanguage></Indlanguage></Private>,
         loader: ({params}) => fetch(`http://localhost:5000/math/${params.id}`)
+      },
+      {
+        path: "/toydetails/:id",
+        element: <Private><Toydetails></Toydetails></Private>,
+        loader: ({params}) => fetch(`http://localhost:5000/alltoys/${params.id}`)
       }
     ]
   },
