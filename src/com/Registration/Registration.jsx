@@ -19,13 +19,12 @@ const Registration = () => {
         .then((userCredential) => {
             const user = userCredential.user;
             profileupdate(name, photo);
-            navigate("/")
-            
-          })
-          .catch((error) => {
+            navigate("/");
+        })
+        .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-          });
+        });
     }
     
     

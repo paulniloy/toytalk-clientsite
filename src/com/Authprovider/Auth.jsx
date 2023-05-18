@@ -54,13 +54,12 @@ const Auth = ({children}) => {
 
     useEffect(()=>{
         const unsubscribe =  onAuthStateChanged(auth, (user)=>{
-                setloader(false);
-                const uid = user.uid;
-                setloggeduser(user)
-                console.log(loggeduser);
-                setloggeduser(user);
-                setusername(user.displayName);
-                setphotourl(user.photoURL);
+            setloader(false);
+            setloggeduser(user)
+            console.log(loggeduser);
+            setloggeduser(user);
+            setusername(user.displayName);
+            setphotourl(user.photoURL);
         })
         return ()=> {
            unsubscribe();
