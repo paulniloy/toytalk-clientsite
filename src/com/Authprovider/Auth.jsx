@@ -11,6 +11,7 @@ const Auth = ({children}) => {
     const [loggeduser, setloggeduser] = useState('');
     const [username, setusername] = useState('');
     const [photourl, setphotourl] = useState('');
+    const [useremail, setuseremail] = useState('');
     const [loader, setloader] = useState(true);
 
     const logout = () => {
@@ -52,7 +53,7 @@ const Auth = ({children}) => {
     }
 
     const authinfo = {
-        google, signin, register, profileupdate, loggeduser, username, photourl, logout, loader
+        google, useremail, signin, register, profileupdate, loggeduser, username, photourl, logout, loader
     }
 
     useEffect(()=>{
@@ -64,6 +65,7 @@ const Auth = ({children}) => {
             console.log(user);
             setusername(user.displayName);
             setphotourl(user.photoURL);
+            setuseremail(user.email)
         })
         return ()=> {
            unsubscribe();
