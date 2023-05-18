@@ -13,12 +13,12 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
-        const photo = form.photo.value;
-        console.log(name, photo);
+        const picture = form.photo.value;
+        console.log(picture);
         register(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            profileupdate(name, photo);
+            profileupdate(name, picture);
             navigate("/");
         })
         .catch((error) => {

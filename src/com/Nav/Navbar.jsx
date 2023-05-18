@@ -5,8 +5,8 @@ import { Authcontext } from '../Authprovider/Auth';
 import "./Nav.css"
 
 const Navbar = () => {
-    const { loggeduser, logout, photourl, username, loader } = useContext(Authcontext);
-    const navigate = useNavigate();
+    const { loggeduser, logout, photourl, username } = useContext(Authcontext);
+    console.log(photourl);
 
 
     const handlelogout = () => {
@@ -23,7 +23,9 @@ const Navbar = () => {
             <div className="indicator">
                 <span className="indicator-item badge bg-green-400"></span>
                 <div className="tooltip tooltip-bottom tooltip-primary" data-tip={username}>
-                    <img className='w-24 rounded-full' src={photourl} alt="" />
+                    {
+                        loggeduser ? <img className='w-24 rounded-full' src={photourl} alt="" /> : <p className='hover:bg-gray-200 px-2 rounded'>{username}</p>
+                    }
                 </div>
             </div>
             <Link className='hover:bg-gray-200 px-2 rounded ' onClick={handlelogout} to={"/login"}>logout</Link>

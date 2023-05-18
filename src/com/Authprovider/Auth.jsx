@@ -20,16 +20,19 @@ const Auth = ({children}) => {
 
     
     const profileupdate = (name, url) => {
-        setloader(true);
-        updateProfile(auth.currentUser, {
-            displayName : `${name}`, photoURL : `${url}`
-        })
-        .then(()=>{
-            console.log('profile updated');
-        })
-        .catch((error)=>{
-            console.log('not updated');
-        })
+        const user = auth.currentUser;
+        if(user){
+            updateProfile(user, {
+                displayName : `${name}`, photoURL : `${url}`
+            })
+            .then(()=>{
+                setloader(true);
+                console.log('profile updated');
+            })
+            .catch((error)=>{
+                console.log('not updated');
+            })
+        }
     }
 
     const signin = (email, password) =>{
@@ -56,8 +59,9 @@ const Auth = ({children}) => {
         const unsubscribe =  onAuthStateChanged(auth, (user)=>{
             setloader(false);
             setloggeduser(user)
-            console.log(loggeduser);
+            console.log(user.displayName, user.photoURL);
             setloggeduser(user);
+            console.log(user);
             setusername(user.displayName);
             setphotourl(user.photoURL);
         })
