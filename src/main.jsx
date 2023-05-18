@@ -43,7 +43,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/eng/:id",
-        element: <Private><Indeng></Indeng></Private>
+        element: <Private><Indeng></Indeng></Private>,
+        loader: ({params}) => fetch(`http://localhost:5000/eng/${params.id}`)
       }
     ]
   },
