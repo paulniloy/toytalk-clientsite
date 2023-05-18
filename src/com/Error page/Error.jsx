@@ -3,8 +3,8 @@ import notfountlogo from "../../assets/404 page.png"
 
 const Error = () => {
     return (
-        <div>
-            <img src={notfountlogo} alt="" />
+        <div >
+            <img className='min-h-screen' src={notfountlogo} alt="" />
         </div>
     );
 };

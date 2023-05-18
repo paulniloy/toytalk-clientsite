@@ -46,9 +46,9 @@ const Addtoy = () => {
 
     return (
         <div className='bg-indigo-200'>
-            <form onSubmit={handletoysubmit}>
                 <div className='text-center text-6xl font-bold pt-10'>Add Your Toy</div>
-                <div className='flex justify-center gap-40 p-20 mx-auto'>
+            <form onSubmit={handletoysubmit}>
+                <div className='flex sm:flex-row flex-col justify-center sm:gap-40 p-20 mx-auto'>
                     <div>
                         <p>Toy Name :</p>
                         <input className='p-2 rounded-lg text-black' type="text" name="toyname" id="" /> <br />
@@ -69,7 +69,7 @@ const Addtoy = () => {
                         <p>Description :</p>
                         <input className='p-2 rounded-lg text-black' type="text" name="description" id="" />
                     </div>
-                    <div className='flex gap-10'>
+                    <div className='flex flex-col sm:flex-row gap-10'>
                         <div>
                             <input required type="radio" name="option" id="option1" value="engineering" />
                             <label for="engineering" className='text-xl font-bold italic'>Engineering toy</label>

@@ -80,21 +80,21 @@ const Main = () => {
                         </TabList>
 
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-20'>
+                            <div className='grid sm:grid-cols-3 grid-cols-1 mx-auto gap-20'>
                                 {
                                     eng.map(eng => <Eng key={eng._id} eng={eng}></Eng>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-20'>
+                            <div className='grid sm:grid-cols-3 grid-cols-1 gap-20'>
                                 {
                                     math.map(math => <Math key={math._id} math={math}></Math>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-20'>
+                            <div className='grid sm:grid-cols-3 grid-cols-1 gap-20'>
                                 {
                                     language.map(language => <Language key={language._id} language={language}></Language>)
                                 }
@@ -104,7 +104,7 @@ const Main = () => {
                 </div>
             </div>
             <div>
-                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mx-96 m-20">
+                <div tabIndex={0} className="collapse w-96 collapse-arrow border border-base-300 bg-base-100 rounded-box mx-auto m-20">
                     <div className="collapse-title text-xl font-medium">
                         Features
                     </div>
@@ -129,10 +129,10 @@ const Main = () => {
                 </div>
             </div>
             <div className='mb-10'>
-                <div className="hero min-h-screen bg-base-200">
-                    <div className="hero-content flex-col lg:flex-row-reverse">
-                        <img src={deliveryboy} className="h-80 rounded-lg shadow-2xl" />
-                        <div>
+                <div className="hero bg-base-200">
+                    <div className="w-full  mx-auto hero-content flex-col lg:flex-row-reverse">
+                        <img src={deliveryboy} className="w-1/2 rounded-lg shadow-2xl" />
+                        <div className='w-9/12 mx-auto'>
                             <h1 className="text-5xl font-bold">Online Delivery</h1>
                             <p className="py-6">We accept online delivery from anywhere in the world. <br />
                                 Our delivery partners :
@@ -143,7 +143,7 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex-col flex items-center'>
+            <div className='flex-col flex items-center w-9/12 mx-auto'>
                 <div className='text-4xl font-bold mb-5'>Purchasing Steps</div>
                 <div>
                     <ul className="steps mt-5">

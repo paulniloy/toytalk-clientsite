@@ -38,7 +38,7 @@ const Mytoys = () => {
 
 
     return (
-        <div className='m-20'>
+        <div className='sm:m-20'>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
