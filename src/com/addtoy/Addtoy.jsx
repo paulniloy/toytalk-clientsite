@@ -3,7 +3,7 @@ import { Authcontext } from '../Authprovider/Auth';
 
 const Addtoy = () => {
 
-    const {username, loggeduser, photourl, useremail} = useContext(Authcontext);
+    const { username, loggeduser, photourl, useremail } = useContext(Authcontext);
 
     const handletoysubmit = (event) => {
         event.preventDefault();
@@ -16,6 +16,7 @@ const Addtoy = () => {
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
+        const category = form.option.value;
         // console.log(toyname, toypic, email, sellername, price, rating, quantity, description);
         const userdata = {
             toyname,
@@ -25,18 +26,19 @@ const Addtoy = () => {
             price,
             rating,
             quantity,
-            description
+            description,
+            category
         }
 
         fetch("http://localhost:5000/alltoys", {
-            method : "POST",
-            headers : {
-                'content-type' : 'application/json'
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
             },
             body: JSON.stringify(userdata)
         })
-        .then(res=>res.json())
-        .then(data=>console.log(data))
+            .then(res => res.json())
+            .then(data => console.log(data))
 
         form.reset()
     }
@@ -59,13 +61,27 @@ const Addtoy = () => {
                     </div>
                     <div>
                         <p>Price :</p>
-                        <input className='p-2 rounded-lg text-black' type="text" name="price" id="" /> <br />
+                        <input className='p-2 rounded-lg text-black' step={0.01} type="number" name="price" id="" /> <br />
                         <p>Rating :</p>
-                        <input className='p-2 rounded-lg text-black' type="text" name="rating" id="" /> <br />
+                        <input className='p-2 rounded-lg text-black' step={0.01} type="number" name="rating" id="" /> <br />
                         <p>Available Quantity :</p>
-                        <input className='p-2 rounded-lg text-black' type="text" name="quantity" id="" /> <br />
+                        <input className='p-2 rounded-lg text-black' step={0.01} type="number" name="quantity" id="" /> <br />
                         <p>Description :</p>
                         <input className='p-2 rounded-lg text-black' type="text" name="description" id="" />
+                    </div>
+                    <div className='flex gap-10'>
+                        <div>
+                            <input required type="radio" name="option" id="option1" value="engineering" />
+                            <label for="engineering" className='text-xl font-bold italic'>Engineering toy</label>
+                        </div>
+                        <div>
+                            <input required type="radio" name="option" id="option1" value="math" />
+                            <label for="math" className='text-xl font-bold italic'>Math toy</label>
+                        </div>
+                        <div>
+                            <input required type="radio" name="option" id="option1" value="language" />
+                            <label for="language" className='text-xl font-bold italic'>Language toy</label>
+                        </div>
                     </div>
                 </div>
                 <div className='flex justify-center'>

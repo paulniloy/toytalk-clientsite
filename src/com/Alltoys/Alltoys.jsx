@@ -1,9 +1,13 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Alltoys = () => {
+    
+    const alltoys = useLoaderData();
+    
     return (
         <div>
-            this is the all toys part
+            this is the page
         </div>
     );
 };

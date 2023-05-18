@@ -40,7 +40,7 @@ const Navbar = () => {
             </div>
             <div className='flex gap-10 items-center'>
                 <Link className='hover:bg-gray-200 px-2 rounded ' to={"/"}>Home</Link>
-                <Link className='hover:bg-gray-200 px-2 rounded ' to={""}>All Toys</Link>
+                <Link className='hover:bg-gray-200 px-2 rounded ' to={"/alltoys"}>All Toys</Link>
                 <Link className='hover:bg-gray-200 px-2 rounded ' to={"/blog"}>Blogs</Link>
                 {
                     loggeduser ? conditional : <Link to={"/login"} className=''>Login</Link>

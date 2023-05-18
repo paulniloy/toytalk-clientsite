@@ -17,6 +17,7 @@ import Addtoy from './com/addtoy/Addtoy';
 import Indeng from './com/indeng/Indeng';
 import Indmath from './com/indmath/Indmath';
 import Indlanguage from './com/Indlanguage/Indlanguage';
+import Alltoys from './com/Alltoys/Alltoys';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: "/addtoy",
         element: <Private><Addtoy></Addtoy></Private>
+      },
+      {
+        path: "/alltoys",
+        element: <Alltoys></Alltoys>,
+        loader: () => fetch("http://localhost:5000/alltoys")
       },
       {
         path: "/eng/:id",
