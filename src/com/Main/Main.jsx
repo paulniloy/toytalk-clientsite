@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import deliveryboy from "../../assets/deliveryboy.png"
 import toyone from "../../assets/toy1.jpg"
 import toytwo from "../../assets/toy2.jpg"
@@ -6,8 +6,33 @@ import toythree from "../../assets/toy3.jpg"
 import toyfour from "../../assets/toy4.jpg"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import Eng from '../engsection/Eng';
+import Math from '../math/Math';
+import Language from '../language/Language';
 
 const Main = () => {
+    const [eng, seteng] =  useState([]);
+    const [math, setmath] =  useState([]);
+    const [language, setlanguage] =  useState([]);
+
+    useEffect(()=>{
+        fetch("http://localhost:5000/eng")
+        .then(res=>res.json())
+        .then(data=> seteng(data))
+    },[])
+    useEffect(()=>{
+        fetch("http://localhost:5000/math")
+        .then(res=>res.json())
+        .then(data=> setmath(data))
+    },[])
+    useEffect(()=>{
+        fetch("http://localhost:5000/language")
+        .then(res=>res.json())
+        .then(data=> setlanguage(data))
+    },[])
+
+
+
     return (
         <div>
             <div className="hero min-h-screen" style={{ backgroundImage: `url("https://thumbs.dreamstime.com/b/baby-kid-toys-banner-background-wooden-blocks-train-car-plane-pop-fidget-toy-yellow-background-top-view-222995646.jpg")` }}>
@@ -46,18 +71,34 @@ const Main = () => {
             </div>
             <div>
                 <div className='text-center text-6xl font-bold'>Shop By Category</div>
-                <div>
+                <div className='w-9/12 mx-auto m-10'>
                     <Tabs>
                         <TabList>
-                            <Tab>Title 1</Tab>
-                            <Tab>Title 2</Tab>
+                            <Tab>Engineering Toys</Tab>
+                            <Tab>Math Toys</Tab>
+                            <Tab>Language Toys</Tab>
                         </TabList>
 
                         <TabPanel>
-                            <h2>Any content 1</h2>
+                           <div className='grid grid-cols-3 gap-20'>
+                           {
+                            eng.map(eng=><Eng key={eng._id} eng={eng}></Eng>)
+                           }
+                           </div>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 2</h2>
+                            <div className='grid grid-cols-3 gap-20'>
+                                {
+                                    math.map(math=><Math key={math._id} math={math}></Math>)
+                                }
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className='grid grid-cols-3 gap-20'>
+                                {
+                                    language.map(language=><Language key={language._id} language={language}></Language>)
+                                }
+                            </div>
                         </TabPanel>
                     </Tabs>
                 </div>

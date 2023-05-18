@@ -14,6 +14,7 @@ import Blog from './com/Blog/Blog';
 import Error from './com/Error page/Error';
 import Private from './com/Privateroute/Private';
 import Addtoy from './com/addtoy/Addtoy';
+import Indeng from './com/indeng/Indeng';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/addtoy",
         element: <Private><Addtoy></Addtoy></Private>
+      },
+      {
+        path: "/eng/:id",
+        element: <Private><Indeng></Indeng></Private>
       }
     ]
   },
