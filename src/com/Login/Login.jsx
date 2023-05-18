@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { IoLogoGoogle } from "react-icons/io5";
 
 const Login = () => {
+    const [success, setsuccess] = useState('');
+    const [error, seterror] = useState('');
 
     const {google, signin} = useContext(Authcontext);
 
@@ -17,11 +19,15 @@ const Login = () => {
             const token = credential.accessToken;
             const user = result.user;
             navigate("/")
+            setsuccess('Successfully signed in');
+            seterror('')
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             const email = error.customData.email;
             const credential = GoogleAuthProvider.credentialFromError(error);
+            seterror(errorMessage);
+            setsuccess('');
         });
     }
     
@@ -34,12 +40,16 @@ const Login = () => {
         signin(email, password)
         .then((userCredential)=>{
             navigate("/")
-            const user = userCredential.user
+            const user = userCredential.user;
+            setsuccess('Successfully signed in');
+            seterror('')
             
         })
         .catch((error)=>{
             const errorCode = error.code;
             const errorMessage = error.message;
+            seterror(errorMessage);
+            setsuccess('');
         })
     }
     
@@ -68,6 +78,8 @@ const Login = () => {
                 } */}
             </form>
             <button className='' onClick={handlegoogle}><IoLogoGoogle className='h-10 w-10'/></button>
+            <p className='text-green-600'>{success}</p>
+            <p className='text-red-600'>{error}</p>
         </div>
     );
 };
