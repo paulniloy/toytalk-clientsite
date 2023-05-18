@@ -11,25 +11,25 @@ import Math from '../math/Math';
 import Language from '../language/Language';
 
 const Main = () => {
-    const [eng, seteng] =  useState([]);
-    const [math, setmath] =  useState([]);
-    const [language, setlanguage] =  useState([]);
+    const [eng, seteng] = useState([]);
+    const [math, setmath] = useState([]);
+    const [language, setlanguage] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch("http://localhost:5000/eng")
-        .then(res=>res.json())
-        .then(data=> seteng(data))
-    },[])
-    useEffect(()=>{
+            .then(res => res.json())
+            .then(data => seteng(data))
+    }, [])
+    useEffect(() => {
         fetch("http://localhost:5000/math")
-        .then(res=>res.json())
-        .then(data=> setmath(data))
-    },[])
-    useEffect(()=>{
+            .then(res => res.json())
+            .then(data => setmath(data))
+    }, [])
+    useEffect(() => {
         fetch("http://localhost:5000/language")
-        .then(res=>res.json())
-        .then(data=> setlanguage(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setlanguage(data))
+    }, [])
 
 
 
@@ -80,27 +80,52 @@ const Main = () => {
                         </TabList>
 
                         <TabPanel>
-                           <div className='grid grid-cols-3 gap-20'>
-                           {
-                            eng.map(eng=><Eng key={eng._id} eng={eng}></Eng>)
-                           }
-                           </div>
-                        </TabPanel>
-                        <TabPanel>
                             <div className='grid grid-cols-3 gap-20'>
                                 {
-                                    math.map(math=><Math key={math._id} math={math}></Math>)
+                                    eng.map(eng => <Eng key={eng._id} eng={eng}></Eng>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
                             <div className='grid grid-cols-3 gap-20'>
                                 {
-                                    language.map(language=><Language key={language._id} language={language}></Language>)
+                                    math.map(math => <Math key={math._id} math={math}></Math>)
+                                }
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className='grid grid-cols-3 gap-20'>
+                                {
+                                    language.map(language => <Language key={language._id} language={language}></Language>)
                                 }
                             </div>
                         </TabPanel>
                     </Tabs>
+                </div>
+            </div>
+            <div>
+                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mx-96 m-20">
+                    <div className="collapse-title text-xl font-medium">
+                        Features
+                    </div>
+                    <div className="collapse-content">
+                        <div className='flex flex-col items-center'>
+                            <p className='text-xl font-bold'>Save Money</p>
+                            <p>Save $5 every year compared to the monthly plan by paying yearly.</p>
+                        </div>
+                        <div className='flex flex-col items-center mt-5'>
+                            <p className='text-xl font-bold'>Fast Return</p>
+                            <p>Money back. If the item did not suit you</p>
+                        </div>
+                        <div className='flex flex-col items-center mt-5'>
+                            <p className='text-xl font-bold'>Online Support</p>
+                            <p>Use our 24/7 customer hotline so you are not alone if you have a question</p>
+                        </div>
+                        <div className='flex flex-col items-center mt-5'>
+                            <p className='text-xl font-bold'>24/7 Delivery option</p>
+                            <p>Find tracking information and order details from Your Orders.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='mb-10'>
