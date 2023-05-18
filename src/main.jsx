@@ -15,6 +15,7 @@ import Error from './com/Error page/Error';
 import Private from './com/Privateroute/Private';
 import Addtoy from './com/addtoy/Addtoy';
 import Indeng from './com/indeng/Indeng';
+import Indmath from './com/indmath/Indmath';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         path: "/eng/:id",
         element: <Private><Indeng></Indeng></Private>,
         loader: ({params}) => fetch(`http://localhost:5000/eng/${params.id}`)
+      },
+      {
+        path: "/math/:id",
+        element: <Private><Indmath></Indmath></Private>,
+        loader: ({params}) => fetch(`http://localhost:5000/math/${params.id}`)
       }
     ]
   },
