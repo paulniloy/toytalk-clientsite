@@ -5,8 +5,7 @@ import { Authcontext } from '../Authprovider/Auth';
 import "./Nav.css"
 
 const Navbar = () => {
-    const { loggeduser, logout, photourl, username } = useContext(Authcontext);
-    console.log(photourl);
+    const { loggeduser, logout, photourl, username, useremail } = useContext(Authcontext);
 
 
     const handlelogout = () => {
@@ -18,7 +17,7 @@ const Navbar = () => {
 
     const conditional =
         <>
-            <Link className='hover:bg-gray-200 px-2 rounded ' to={""}>My Toys</Link>
+            <Link className='hover:bg-gray-200 px-2 rounded ' to={'/mytoys'}>My Toys</Link>
             <Link className='hover:bg-gray-200 px-2 rounded ' to={"/addtoy"}>Add Toys</Link>
             <div className="indicator">
                 <span className="indicator-item badge bg-green-400"></span>

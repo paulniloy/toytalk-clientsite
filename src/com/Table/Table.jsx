@@ -10,7 +10,7 @@ const Table = ({ toy }) => {
         <td>{email}</td>
         <td>{category}</td>
         <td>{toyname}</td>
-        <td><img className='h-10' src={toypic} alt="" /></td>
+        <td><img className='h-10 w-10' src={toypic} alt="" /></td>
         <td>
             <Link className='btn btn-primary' to={`/toydetails/${_id}`}>View Details</Link>
         </td>

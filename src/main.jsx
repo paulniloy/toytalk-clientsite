@@ -19,6 +19,8 @@ import Indmath from './com/indmath/Indmath';
 import Indlanguage from './com/Indlanguage/Indlanguage';
 import Alltoys from './com/Alltoys/Alltoys';
 import Toydetails from './com/Toydetails/Toydetails';
+import Mytoys from './com/Mytoys/Mytoys';
+import Update from './com/update/Update';
 
 const router = createBrowserRouter([
   {
@@ -69,6 +71,14 @@ const router = createBrowserRouter([
         path: "/toydetails/:id",
         element: <Private><Toydetails></Toydetails></Private>,
         loader: ({params}) => fetch(`http://localhost:5000/alltoys/${params.id}`)
+      },
+      {
+        path: "/mytoys",
+        element: <Private><Mytoys></Mytoys></Private>,
+      },
+      {
+        path: "/update",
+        element: <Private><Update></Update></Private>,
       }
     ]
   },
