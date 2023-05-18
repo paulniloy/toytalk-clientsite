@@ -21,7 +21,7 @@ const Tabletwo = ({toys, handledelete}) => {
                 <button onClick={()=> handledelete(_id)} className='btn btn-primary'>Delete</button>
             </td>
             <td>
-                <Link to={"/update"}><button className='btn btn-secondary'>Update</button></Link>
+                <Link to={`/update/${_id}`}><button className='btn btn-secondary'>Update</button></Link>
             </td>
         </tr>
     );
