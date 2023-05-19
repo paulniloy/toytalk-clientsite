@@ -38,7 +38,7 @@ const Alltoys = () => {
     
       const fetchData = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/alltoys?page=${currentpage}&limit=${itemsperpage}`);
+          const response = await fetch(`http://localhost:5000/alltoysbylimit?page=${currentpage}&limit=${itemsperpage}`);
           const jsonData = await response.json();
           setalltoys(jsonData);
         } catch (error) {
