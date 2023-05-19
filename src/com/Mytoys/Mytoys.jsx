@@ -11,7 +11,7 @@ const Mytoys = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/alltoys?email=${useremail}`)
+        fetch(`http://localhost:5000/alltoys?email=${useremail}&sort=1`)
         .then(res=>res.json())
         .then(data=>setmytoys(data))
     },[])

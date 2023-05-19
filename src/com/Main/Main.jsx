@@ -9,11 +9,18 @@ import 'react-tabs/style/react-tabs.css';
 import Eng from '../engsection/Eng';
 import Math from '../math/Math';
 import Language from '../language/Language';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const Main = () => {
     const [eng, seteng] = useState([]);
     const [math, setmath] = useState([]);
     const [language, setlanguage] = useState([]);
+
+
+    useEffect(()=>{
+        AOS.init();
+    },[])
 
     useEffect(() => {
         fetch("http://localhost:5000/eng")
@@ -39,7 +46,7 @@ const Main = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="">
-                        <h1 className="mb-5 text-6xl font-bold">Welcome</h1>
+                        <h1  className="mb-5 text-6xl font-bold">Welcome</h1>
                         <p className="">
                             At Toy Talks, we believe in the power of play and the limitless potential of a child's imagination. Our mission is to create toys that inspire creativity, spark curiosity, and bring joy to children of all ages.
                             Our toys are carefully crafted with safety and quality in mind. We adhere to the highest standards and ensure that every product undergoes rigorous testing to provide you with peace of mind while your little ones embark on their exciting adventures. </p>
@@ -47,8 +54,8 @@ const Main = () => {
                 </div>
             </div>
             <div className='m-10'>
-                <div className='text-center text-6xl font-bold'>Gallary</div>
-                <div className="carousel w-1/2 mx-auto m-10 rounded-lg h-80">
+                <div data-aos="fade-right" className='text-center text-6xl font-bold'>Gallary</div>
+                <div data-aos="zoom-out" className="carousel w-1/2 mx-auto m-10 rounded-lg h-80">
                     <div id="item1" className="carousel-item w-full">
                         <img src={toyone} className="w-full" />
                     </div>
@@ -70,8 +77,8 @@ const Main = () => {
                 </div>
             </div>
             <div>
-                <div className='text-center text-6xl font-bold'>Shop By Category</div>
-                <div className='w-9/12 mx-auto m-10'>
+                <div data-aos="fade-right" className='text-center text-6xl font-bold'>Shop By Category</div>
+                <div className='w-9/12 mx-auto m-10' data-aos="fade-left">
                     <Tabs>
                         <TabList>
                             <Tab>Engineering Toys</Tab>
@@ -104,7 +111,7 @@ const Main = () => {
                 </div>
             </div>
             <div>
-                <div tabIndex={0} className="collapse w-96 collapse-arrow border border-base-300 bg-base-100 rounded-box mx-auto m-20">
+                <div data-aos="slide-up" tabIndex={0} className="collapse w-96 collapse-arrow border border-base-300 bg-base-100 rounded-box mx-auto m-20">
                     <div className="collapse-title text-xl font-medium">
                         Features
                     </div>
@@ -128,10 +135,10 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='mb-10'>
+            <div data-aos="zoom-in" className='mb-10'>
                 <div className="hero bg-base-200">
                     <div className="w-full  mx-auto hero-content flex-col lg:flex-row-reverse">
-                        <img src={deliveryboy} className="w-1/2 rounded-lg shadow-2xl" />
+                        <img  src={deliveryboy} className="w-1/2 rounded-lg shadow-2xl" />
                         <div className='w-9/12 mx-auto'>
                             <h1 className="text-5xl font-bold">Online Delivery</h1>
                             <p className="py-6">We accept online delivery from anywhere in the world. <br />
@@ -143,7 +150,7 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex-col flex items-center w-9/12 mx-auto'>
+            <div data-aos="flip-left" className='flex-col flex items-center w-9/12 mx-auto'>
                 <div className='text-4xl font-bold mb-5'>Purchasing Steps</div>
                 <div>
                     <ul className="steps mt-5">
@@ -155,7 +162,7 @@ const Main = () => {
                     </ul>
                 </div>
             </div>
-            <div className='flex justify-center m-10'>
+            <div data-aos="zoom-in" className='flex justify-center m-10'>
                 <div className="stats shadow">
 
                     <div className="stat">

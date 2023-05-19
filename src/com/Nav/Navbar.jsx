@@ -34,7 +34,7 @@ const Navbar = () => {
     return (
         <div className='flex flex-col sm:flex-row sm:justify-evenly justify-between p-5 bg-red-200'>
             <div className='flex items-center gap-10'>
-                <img className='w-20 round' src={logo} alt="" />
+                <img  className='w-20 round' src={logo} alt="" />
                 <h1 className='text-3xl font-bold italic'>Toy Talks</h1>
             </div>
             <div className='flex flex-col sm:flex-row gap-10 items-center'>
