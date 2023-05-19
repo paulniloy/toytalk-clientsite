@@ -39,7 +39,9 @@ const Update = () => {
                     }
                 })
         }
-        alert('Update Cancelled')
+        else {
+            alert('Update Cancelled')
+        }
 
 
     }
@@ -65,11 +67,11 @@ const Update = () => {
                 <div>
                     <p className='text-6xl mb-20 font-bold'>Update toys</p>
                     <p>Price :</p>
-                    <input className='p-2 rounded-lg text-black' step={0.01} type="number" name="price" id="" /> <br />
+                    <input required className='p-2 rounded-lg text-black' step={0.01} type="number" name="price" id="" /> <br />
                     <p>Available Quantity :</p>
-                    <input className='p-2 rounded-lg text-black' step={0.01} type="number" name="quantity" id="" /> <br />
+                    <input required className='p-2 rounded-lg text-black' step={0.01} type="number" name="quantity" id="" /> <br />
                     <p>Description :</p>
-                    <input className='p-2 rounded-lg text-black' type="text" name="description" id="" />
+                    <input required className='p-2 rounded-lg text-black' type="text" name="description" id="" />
                 </div>
                 <div className='flex justify-center mt-10'>
                     <button className='btn btn-primary' type="submit">Update</button>

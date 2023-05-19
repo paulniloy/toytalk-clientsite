@@ -10,20 +10,21 @@ import Eng from '../engsection/Eng';
 import Math from '../math/Math';
 import Language from '../language/Language';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 import usertitle from '../../TItle/Title';
 import { Authcontext } from '../Authprovider/Auth';
+import { HiAcademicCap, HiLightBulb, HiLightningBolt } from "react-icons/hi";
 
 const Main = () => {
-    const {loggeduser} = useContext(Authcontext);
+    const { loggeduser } = useContext(Authcontext);
     const [eng, seteng] = useState([]);
     const [math, setmath] = useState([]);
     const [language, setlanguage] = useState([]);
 
 
-    useEffect(()=>{
+    useEffect(() => {
         AOS.init();
-    },[])
+    }, [])
 
     useEffect(() => {
         fetch("http://localhost:5000/eng")
@@ -51,7 +52,7 @@ const Main = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="">
-                        <h1  className="mb-5 text-6xl font-bold">Welcome</h1>
+                        <h1 className="mb-5 text-6xl font-bold">Welcome</h1>
                         <p className="">
                             At Toy Talks, we believe in the power of play and the limitless potential of a child's imagination. Our mission is to create toys that inspire creativity, spark curiosity, and bring joy to children of all ages.
                             Our toys are carefully crafted with safety and quality in mind. We adhere to the highest standards and ensure that every product undergoes rigorous testing to provide you with peace of mind while your little ones embark on their exciting adventures. </p>
@@ -143,7 +144,7 @@ const Main = () => {
             <div data-aos="zoom-in" className='mb-10'>
                 <div className="hero bg-base-200">
                     <div className="w-full  mx-auto hero-content flex-col lg:flex-row-reverse">
-                        <img  src={deliveryboy} className="w-1/2 rounded-lg shadow-2xl" />
+                        <img src={deliveryboy} className="w-1/2 rounded-lg shadow-2xl" />
                         <div className='w-9/12 mx-auto'>
                             <h1 className="text-5xl font-bold">Online Delivery</h1>
                             <p className="py-6">We accept online delivery from anywhere in the world. <br />
@@ -174,6 +175,60 @@ const Main = () => {
                         <div className="stat-title">Total Page Views</div>
                         <div className="stat-value">1,20,400</div>
                         <div className="stat-desc mt-5">47% more than last month</div>
+                    </div>
+                </div>
+            </div>
+            <div className='m-20'>
+                <p data-aos="fade-in" className='text-4xl text-center font-bold'>Here how it works</p>
+                <div data-aos="zoom-in" className='flex justify-center gap-20 m-20'>
+                    <div className='flex-col flex items-center bg-red-200 rounded-xl p-10'>
+                        <h1><HiLightningBolt className='h-10 w-10' /></h1>
+                        <h1 className='text-2xl font-bold'>Encouraging</h1>
+                        <h1 className=' text-center mt-5 italic'>Learning toys often involve hands-on activities, allowing children to explore and manipulate objects. This hands-on experience encourages curiosity, problem-solving, and critical thinking skills.</h1>
+                    </div>
+                    <div className='flex-col flex items-center bg-red-200 rounded-xl p-10'>
+                        <h1><HiLightBulb className='h-10 w-10' /></h1>
+                        <h1 className='text-2xl font-bold'>Inspire</h1>
+                        <h1 className=' text-center mt-5 italic'>Many learning toys, such as pretend play sets or construction toys, promote imaginative play and role-playing. Through pretend scenarios, children can explore different roles, create narratives, and express their ideas and emotions.</h1>
+                    </div>
+                    <div className='flex-col flex items-center bg-red-200 rounded-xl p-10'>
+                        <h1><HiAcademicCap className='h-10 w-10' /></h1>
+                        <h1 className='text-2xl font-bold'>Creative</h1>
+                        <h1 className=' text-center mt-5 italic'>Toys that involve arts and crafts, such as drawing, painting, or sculpting materials, provide an outlet for creative expression. They allow children to explore different mediums, experiment with colors and shapes, and develop their artistic abilities.</h1>
+                    </div>
+                </div>
+            </div>
+            <div className='m-20'>
+                <div>
+                    <h1 data-aos="fade-right" className='text-4xl font-bold text-center'>Customers Reviews</h1>
+                </div>
+                <div className='mt-20 grid grid-cols-1 sm:grid-cols-3'>
+                    <div data-aos="fade-up" className="card w-96 bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                            <img src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg" alt="Shoes" className="rounded-xl" />
+                        </figure>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title text-3xl">Watson</h2>
+                            <p className="italic">"I absolutely love the educational toy page! It offers a wide variety of toys that are not only fun but also help children learn and develop important skills. The page is well-organized, making it easy to navigate and find the perfect toy for my child." </p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-down" className="card w-96 bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                            <img src="https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg" alt="Shoes" className="rounded-xl" />
+                        </figure>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title text-3xl">Watson</h2>
+                            <p className="italic">"The educational toy page is a treasure trove of learning opportunities! The range of toys available is impressive, covering various subjects and age groups. As a homeschooling parent, I appreciate the selection of STEM toys that promote critical thinking and problem-solving skills."</p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" className="card w-96 bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                            <img src="https://img.freepik.com/free-photo/headshot-attractive-man-smiling-pleased-looking-intrigued-standing-blue-background_1258-65468.jpg" alt="Shoes" className="rounded-xl" />
+                        </figure>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title text-3xl">Watson</h2>
+                            <p className="italic">"I stumbled upon the educational toy page while searching for interactive toys for my toddler, and I'm thrilled with my discovery! The page offers an extensive collection of toys that are both entertaining and educational. My child is engaged for hours with the hands-on learning experiences provided by these toys." </p>
+                        </div>
                     </div>
                 </div>
             </div>
