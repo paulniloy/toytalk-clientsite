@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Authcontext } from '../Authprovider/Auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Eng = ({ eng }) => {
     const {_id, picture, name, price, rating} = eng;
+
+    const {loggeduser} = useContext(Authcontext);
+
+    const handletoast = () =>{
+        if(!loggeduser){
+            
+            alert("Please Log in First")
+        }
+    }
 
     return (
         <div>
@@ -16,7 +28,7 @@ const Eng = ({ eng }) => {
                     {/* <p>Price : {price}</p>
                     <p>rating : {rating}</p> */}
                     <div className="card-actions">
-                        <Link className="btn btn-primary" to={`eng/${_id}`}>view Details</Link>
+                        <Link onClick={handletoast} className="btn btn-primary" to={`eng/${_id}`}>view Details</Link>
                     </div>
                 </div>
             </div>

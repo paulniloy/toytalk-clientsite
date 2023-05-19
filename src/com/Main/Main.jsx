@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import deliveryboy from "../../assets/deliveryboy.png"
 import toyone from "../../assets/toy1.jpg"
 import toytwo from "../../assets/toy2.jpg"
@@ -12,8 +12,10 @@ import Language from '../language/Language';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import usertitle from '../../TItle/Title';
+import { Authcontext } from '../Authprovider/Auth';
 
 const Main = () => {
+    const {loggeduser} = useContext(Authcontext);
     const [eng, seteng] = useState([]);
     const [math, setmath] = useState([]);
     const [language, setlanguage] = useState([]);

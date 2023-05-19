@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import usertitle from '../../TItle/Title';
+import { Authcontext } from '../Authprovider/Auth';
 
 const Toydetails = () => {
+
+
+    const {loggeduser} = useContext(Authcontext);
+
 
     usertitle("Toy_Details")
     const toydata = useLoaderData();
     const { _id, toyname, toypic, email, sellername, price, rating, quantity, description, category } = toydata;
+
+
 
     return (
         <div>
