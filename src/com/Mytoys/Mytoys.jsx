@@ -2,12 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Tabletwo from '../Tabletwo/Tabletwo';
 import { Authcontext } from '../Authprovider/Auth';
+import usertitle from '../../TItle/Title';
 
 const Mytoys = () => {
 
     const {useremail} = useContext(Authcontext);
 
     const [mytoys, setmytoys] = useState([]);
+
+    usertitle('My_Toy')
 
 
     useEffect(()=>{

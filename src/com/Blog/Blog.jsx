@@ -1,6 +1,11 @@
 import React from 'react';
+import usertitle from '../../TItle/Title';
 
 const Blog = () => {
+
+
+    usertitle("Blogs")
+
     return (
         <div>
             <p className='text-center text-6xl font-bold m-10'>This is the Blog page</p>

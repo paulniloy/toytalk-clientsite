@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { IoLogoGoogle } from "react-icons/io5";
+import usertitle from '../../TItle/Title';
 
 const Login = () => {
     const [success, setsuccess] = useState('');
@@ -52,6 +53,8 @@ const Login = () => {
             setsuccess('');
         })
     }
+
+    usertitle("Login")
     
 
 

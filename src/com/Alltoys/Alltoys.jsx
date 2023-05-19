@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Table from '../Table/Table';
+import usertitle from '../../TItle/Title';
 
 const Alltoys = () => {
 
+
+    usertitle("All_Toys")
 
     const alltoys = useLoaderData();
     const { toyname, toypic, email, sellername, price, rating, quantity, description, category } = alltoys;

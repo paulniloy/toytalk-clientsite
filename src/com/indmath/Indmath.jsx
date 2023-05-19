@@ -1,7 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import usertitle from '../../TItle/Title';
 
 const Indmath = () => {
+
+
+    usertitle("Math_Toy")
     const math = useLoaderData();
     const {_id, picture, name, price, rating} = math;
     return (

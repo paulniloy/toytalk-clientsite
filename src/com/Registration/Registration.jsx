@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
+import usertitle from '../../TItle/Title';
 
 const Registration = () => {
     const [success, setsuccess] = useState('');
@@ -32,6 +33,8 @@ const Registration = () => {
                 setsuccess('');
             });
     }
+
+    usertitle("Registration")
 
 
     return (

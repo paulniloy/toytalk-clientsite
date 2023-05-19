@@ -11,6 +11,7 @@ import Math from '../math/Math';
 import Language from '../language/Language';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import usertitle from '../../TItle/Title';
 
 const Main = () => {
     const [eng, seteng] = useState([]);
@@ -37,6 +38,8 @@ const Main = () => {
             .then(res => res.json())
             .then(data => setlanguage(data))
     }, [])
+
+    usertitle("Home")
 
 
 

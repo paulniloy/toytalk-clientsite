@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Authcontext } from '../Authprovider/Auth';
+import usertitle from '../../TItle/Title';
 
 const Addtoy = () => {
 
@@ -43,6 +44,7 @@ const Addtoy = () => {
         form.reset()
     }
 
+    usertitle("Add_Toy")
 
     return (
         <div className='bg-indigo-200'>

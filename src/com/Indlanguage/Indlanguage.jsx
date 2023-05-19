@@ -1,7 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import usertitle from '../../TItle/Title';
 
 const Indlanguage = () => {
+
+    usertitle("Language_Toy")
     const language = useLoaderData();
     const {_id, picture, name, price, rating} = language;
     return (
