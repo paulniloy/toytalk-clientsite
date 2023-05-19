@@ -21,23 +21,26 @@ const Mytoys = () => {
 
 
     const handledelete = (_id) =>{
-        fetch(`http://localhost:5000/alltoys/${_id}`,{
-            method: "DELETE",
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify({status: confirm})
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            confirm("Are you sure to delete?")
-            if(data.deletedCount>0){
-                const remaining = mytoys.filter(toy=> toy._id !== _id);
-                setmytoys(remaining);
+        const process =  confirm("Are you sure to delete?");
+            if(process){
+                fetch(`http://localhost:5000/alltoys/${_id}`,{
+                    method: "DELETE",
+                    headers: {
+                        'content-type' : 'application/json'
+                    },
+                    body: JSON.stringify({status: confirm})
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    
+                    if(data.deletedCount>0){
+                        const remaining = mytoys.filter(toy=> toy._id !== _id);
+                        setmytoys(remaining);
+                    }
+                })
             }
-        })
-
-        console.log(_id);
+            alert("Deletation Cancelled")
+        
     }
 
 
