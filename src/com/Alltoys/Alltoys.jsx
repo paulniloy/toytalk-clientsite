@@ -9,7 +9,7 @@ const Alltoys = () => {
     const [alltoys, setalltoys] = useState([]);
     const [currentpage, setcurrentpage] = useState(0);
     const { totalnumber } = useLoaderData();
-    const [itemsperpage, setitempsperpage] = useState(5);
+    const [itemsperpage, setitempsperpage] = useState(20);
 
 
     const handleselectchange = (event) => {
@@ -99,15 +99,6 @@ const Alltoys = () => {
                         <option value="10">10</option>
                         <option value="20">20</option>
                     </select>
-                    {/* <select value={itemsperpage} onChange={handleselectchange}>
-                        {option.map(option => {
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
-                        })}
-                    </select> */}
-                    {currentpage}
-                    {itemsperpage}
                 </div>
             </div>
 

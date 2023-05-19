@@ -3,8 +3,11 @@ import { useLoaderData } from 'react-router-dom';
 import Tabletwo from '../Tabletwo/Tabletwo';
 import { Authcontext } from '../Authprovider/Auth';
 import usertitle from '../../TItle/Title';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Mytoys = () => {
+    const notify = () => toast.success("Deleted Successfully");
 
     const {useremail} = useContext(Authcontext);
 
@@ -35,6 +38,7 @@ const Mytoys = () => {
                     
                     if(data.deletedCount>0){
                         const remaining = mytoys.filter(toy=> toy._id !== _id);
+                        notify()
                         setmytoys(remaining);
                     }
                 })
@@ -48,6 +52,18 @@ const Mytoys = () => {
         <div className='sm:m-20'>
             <div className="overflow-x-auto">
                 <table className="table w-full">
+                <ToastContainer
+                    position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
                     {/* head */}
                     <thead>
                         <tr>
