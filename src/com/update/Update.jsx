@@ -1,8 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Update = () => {
 
+
+    const notify = () => toast.success("Toy Updated Successfully");
     const loaderdata = useLoaderData();
 
     const handleupdate = (event) => {
@@ -26,6 +31,9 @@ const Update = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
+            if(data.modifiedCount>0){
+                notify()
+            }
         })
     }
 
@@ -35,6 +43,18 @@ const Update = () => {
 return (
     <div className='flex flex-col items-center m-20'>
         <form onSubmit={handleupdate}>
+        <ToastContainer
+                    position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
             <div>
                 <p className='text-6xl mb-20 font-bold'>Update toys</p>
                 <p>Price :</p>

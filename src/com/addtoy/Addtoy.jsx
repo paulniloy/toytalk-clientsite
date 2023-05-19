@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
 import { Authcontext } from '../Authprovider/Auth';
 import usertitle from '../../TItle/Title';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Addtoy = () => {
+
+    const notify = () => toast.success("Toy Added Successfully");
 
     const { username, loggeduser, photourl, useremail } = useContext(Authcontext);
 
@@ -39,7 +43,13 @@ const Addtoy = () => {
             body: JSON.stringify(userdata)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    // alert('added toy successfully')
+                    notify()
+                }
+            })
 
         form.reset()
     }
@@ -48,8 +58,20 @@ const Addtoy = () => {
 
     return (
         <div className='bg-indigo-200'>
-                <div className='text-center text-6xl font-bold pt-10'>Add Your Toy</div>
+            <div className='text-center text-6xl font-bold pt-10'>Add Your Toy</div>
             <form onSubmit={handletoysubmit}>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
                 <div className='flex sm:flex-row flex-col justify-center sm:gap-40 p-20 mx-auto'>
                     <div>
                         <p>Toy Name :</p>

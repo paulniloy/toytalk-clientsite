@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Table from '../Table/Table';
 import usertitle from '../../TItle/Title';
 
 const Alltoys = () => {
+
+    const [searchitem, setsearchitem] = useState('');
+
 
 
     usertitle("All_Toys")
@@ -13,6 +16,12 @@ const Alltoys = () => {
 
     return (
         <div className='sm:m-20'>
+            {searchitem}
+            <div className='mb-5 flex sm:flex-row items-center sm:gap-10 sm:justify-center flex-col'>
+                <input onChange={(e)=>setsearchitem(e.target.value)} placeholder='search' className='bg-red-200 p-5 rounded-lg' type="search" name="" id="" />
+                {/* <button className='btn btn-primary'>Search result</button> */}
+
+            </div>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
@@ -28,7 +37,9 @@ const Alltoys = () => {
                     </thead>
                     <tbody>
                         {
-                            alltoys.map(toy=><Table
+                            alltoys.filter((toy)=>{
+                                return searchitem.toLowerCase() === '' ? toy : toy.toyname.toLowerCase().includes(searchitem);
+                            }).map(toy=><Table
                             key={toy._id}
                             toy={toy}
                             ></Table>)

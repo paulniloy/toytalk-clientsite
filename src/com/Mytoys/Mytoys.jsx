@@ -30,6 +30,7 @@ const Mytoys = () => {
         })
         .then(res=>res.json())
         .then(data=>{
+            confirm("Are you sure to delete?")
             if(data.deletedCount>0){
                 const remaining = mytoys.filter(toy=> toy._id !== _id);
                 setmytoys(remaining);
