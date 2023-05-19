@@ -1,11 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../Authprovider/Auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { IoLogoGoogle } from "react-icons/io5";
 import usertitle from '../../TItle/Title';
 
 const Login = () => {
+
+    const location = useLocation();
+    console.log(location);
+    const from = location.state?.from?.pathname || "/";
+
+
+
+
     const [success, setsuccess] = useState('');
     const [error, seterror] = useState('');
 
@@ -19,7 +27,7 @@ const Login = () => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
-            navigate("/")
+            navigate(from)
             setsuccess('Successfully signed in');
             seterror('')
         }).catch((error) => {
@@ -40,7 +48,7 @@ const Login = () => {
         console.log(email, password);
         signin(email, password)
         .then((userCredential)=>{
-            navigate("/")
+            navigate(from)
             const user = userCredential.user;
             setsuccess('Successfully signed in');
             seterror('')

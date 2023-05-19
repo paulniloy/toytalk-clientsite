@@ -12,6 +12,7 @@ const Eng = ({ eng }) => {
                 </figure> */}
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{name}</h2>
+                    <img src={picture} alt="" />
                     {/* <p>Price : {price}</p>
                     <p>rating : {rating}</p> */}
                     <div className="card-actions">
