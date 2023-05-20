@@ -14,6 +14,7 @@ import 'aos/dist/aos.css';
 import usertitle from '../../TItle/Title';
 import { Authcontext } from '../Authprovider/Auth';
 import { HiAcademicCap, HiLightBulb, HiLightningBolt } from "react-icons/hi";
+import banner from "../../assets/banner.jpg"
 
 const Main = () => {
     const { loggeduser } = useContext(Authcontext);
@@ -48,12 +49,12 @@ const Main = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://thumbs.dreamstime.com/b/baby-kid-toys-banner-background-wooden-blocks-train-car-plane-pop-fidget-toy-yellow-background-top-view-222995646.jpg")` }}>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url(${banner})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="">
-                        <h1 className="mb-5 text-6xl font-bold">Welcome</h1>
-                        <p className="">
+                        <h1 className="mb-5 text-white text-6xl font-bold">Welcome</h1>
+                        <p className="text-white text-xl italic font-bold">
                             At Toy Talks, we believe in the power of play and the limitless potential of a child's imagination. Our mission is to create toys that inspire creativity, spark curiosity, and bring joy to children of all ages.
                             Our toys are carefully crafted with safety and quality in mind. We adhere to the highest standards and ensure that every product undergoes rigorous testing to provide you with peace of mind while your little ones embark on their exciting adventures. </p>
                     </div>
