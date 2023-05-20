@@ -9,42 +9,55 @@ import 'react-toastify/dist/ReactToastify.css';
 const Mytoys = () => {
     const notify = () => toast.success("Deleted Successfully");
 
-    const {useremail} = useContext(Authcontext);
+    const { useremail } = useContext(Authcontext);
 
     const [mytoys, setmytoys] = useState([]);
 
     usertitle('My_Toy')
 
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`https://serversite-pi.vercel.app/alltoys?email=${useremail}&sort=1`)
-        .then(res=>res.json())
-        .then(data=>setmytoys(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setmytoys(data))
+    }, [])
 
 
-    const handledelete = (_id) =>{
-        const process =  confirm("Are you sure to delete?");
-            if(process){
-                fetch(`http://localhost:5000/alltoys/${_id}`,{
-                    method: "DELETE",
-                    headers: {
-                        'content-type' : 'application/json'
-                    },
-                    body: JSON.stringify({status: confirm})
-                })
-                .then(res=>res.json())
-                .then(data=>{
-                    
-                    if(data.deletedCount>0){
-                        const remaining = mytoys.filter(toy=> toy._id !== _id);
+    const handledelete = (_id) => {
+        const process = confirm("Are you sure to delete?");
+        if (process) {
+            fetch(`https://serversite-pi.vercel.app/${_id}`, {
+                method: "DELETE",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ status: confirm })
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.deletedCount > 0) {
+                        const remaining = mytoys.filter(toy => toy._id !== _id);
                         notify()
                         setmytoys(remaining);
                     }
                 })
-            }
+        }
+        else {
             alert("Deletation Cancelled")
-        
+        }
+
+    }
+
+    const handleascending =()=>{
+        fetch(`https://serversite-pi.vercel.app/as?email=${useremail}`)
+        .then(res=>res.json())
+        .then(data=>setmytoys(data))
+    }
+    const handledescending = () =>{
+        fetch(`https://serversite-pi.vercel.app/des?email=${useremail}`)
+        .then(res=>res.json())
+        .then(data=>setmytoys(data))
     }
 
 
@@ -52,18 +65,18 @@ const Mytoys = () => {
         <div className='sm:m-20'>
             <div className="overflow-x-auto">
                 <table className="table w-full">
-                <ToastContainer
-                    position="top-center"
-                    autoClose={3000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"
-                />
+                    <ToastContainer
+                        position="top-center"
+                        autoClose={3000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
                     {/* head */}
                     <thead>
                         <tr>
@@ -83,15 +96,19 @@ const Mytoys = () => {
                     </thead>
                     <tbody>
                         {
-                            mytoys.map(toys=><Tabletwo
-                            key={toys._id}
-                            toys={toys}
-                            handledelete={handledelete}
+                            mytoys.map(toys => <Tabletwo
+                                key={toys._id}
+                                toys={toys}
+                                handledelete={handledelete}
                             >
                             </Tabletwo>)
                         }
                     </tbody>
                 </table>
+            </div>
+            <div className='flex justify-center gap-20'>
+                <button onClick={handleascending} className='btn btn-primary'>Ascending</button>
+                <button onClick={handledescending} className='btn btn-primary'>Descending</button>
             </div>
         </div>
     );
