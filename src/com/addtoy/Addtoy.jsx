@@ -35,7 +35,7 @@ const Addtoy = () => {
             category
         }
 
-        fetch("http://localhost:5000/alltoys", {
+        fetch("https://serversite-pi.vercel.app/alltoys", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

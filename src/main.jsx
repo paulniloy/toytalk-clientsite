@@ -50,27 +50,27 @@ const router = createBrowserRouter([
       {
         path: "/alltoys",
         element: <Alltoys></Alltoys>,
-        loader: () => fetch("http://localhost:5000/totaltoys")
+        loader: () => fetch("https://serversite-pi.vercel.app/totaltoys")
       },
       {
         path: "/eng/:id",
         element: <Private><Indeng></Indeng></Private>,
-        loader: ({params}) => fetch(`http://localhost:5000/eng/${params.id}`)
+        loader: ({params}) => fetch(`https://serversite-pi.vercel.app/eng/${params.id}`)
       },
       {
         path: "/math/:id",
         element: <Private><Indmath></Indmath></Private>,
-        loader: ({params}) => fetch(`http://localhost:5000/math/${params.id}`)
+        loader: ({params}) => fetch(`https://serversite-pi.vercel.app/math/${params.id}`)
       },
       {
         path: "/language/:id",
         element: <Private><Indlanguage></Indlanguage></Private>,
-        loader: ({params}) => fetch(`http://localhost:5000/math/${params.id}`)
+        loader: ({params}) => fetch(`https://serversite-pi.vercel.app/math/${params.id}`)
       },
       {
         path: "/toydetails/:id",
         element: <Private><Toydetails></Toydetails></Private>,
-        loader: ({params}) => fetch(`http://localhost:5000/alltoys/${params.id}`)
+        loader: ({params}) => fetch(`https://serversite-pi.vercel.app/alltoys/${params.id}`)
       },
       {
         path: "/mytoys",
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <Private><Update></Update></Private>,
-        loader: ({params}) => fetch(`http://localhost:5000/alltoys/${params.id}`)
+        loader: ({params}) => fetch(`https://serversite-pi.vercel.app/alltoys/${params.id}`)
       }
     ]
   },

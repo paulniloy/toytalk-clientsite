@@ -24,7 +24,7 @@ const Update = () => {
 
         const updated = confirm("Are you sure want to update?")
         if (updated) {
-            fetch(`http://localhost:5000/alltoys/${loaderdata._id}`, {
+            fetch(`https://serversite-pi.vercel.app/alltoys/${loaderdata._id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json'

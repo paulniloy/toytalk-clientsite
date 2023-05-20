@@ -27,17 +27,17 @@ const Main = () => {
     }, [])
 
     useEffect(() => {
-        fetch("http://localhost:5000/eng")
+        fetch("https://serversite-pi.vercel.app/eng")
             .then(res => res.json())
             .then(data => seteng(data))
     }, [])
     useEffect(() => {
-        fetch("http://localhost:5000/math")
+        fetch("https://serversite-pi.vercel.app/math")
             .then(res => res.json())
             .then(data => setmath(data))
     }, [])
     useEffect(() => {
-        fetch("http://localhost:5000/language")
+        fetch("https://serversite-pi.vercel.app/language")
             .then(res => res.json())
             .then(data => setlanguage(data))
     }, [])
@@ -181,17 +181,17 @@ const Main = () => {
             <div className='m-20'>
                 <p data-aos="fade-in" className='text-4xl text-center font-bold'>Here how it works</p>
                 <div data-aos="zoom-in" className='flex justify-center gap-20 m-20'>
-                    <div className='flex-col flex items-center bg-red-200 rounded-xl p-10'>
+                    <div className='shadow-2xl flex-col flex items-center bg-red-200 rounded-xl p-10'>
                         <h1><HiLightningBolt className='h-10 w-10' /></h1>
                         <h1 className='text-2xl font-bold'>Encouraging</h1>
                         <h1 className=' text-center mt-5 italic'>Learning toys often involve hands-on activities, allowing children to explore and manipulate objects. This hands-on experience encourages curiosity, problem-solving, and critical thinking skills.</h1>
                     </div>
-                    <div className='flex-col flex items-center bg-red-200 rounded-xl p-10'>
+                    <div className='shadow-2xl flex-col flex items-center bg-red-200 rounded-xl p-10'>
                         <h1><HiLightBulb className='h-10 w-10' /></h1>
                         <h1 className='text-2xl font-bold'>Inspire</h1>
                         <h1 className=' text-center mt-5 italic'>Many learning toys, such as pretend play sets or construction toys, promote imaginative play and role-playing. Through pretend scenarios, children can explore different roles, create narratives, and express their ideas and emotions.</h1>
                     </div>
-                    <div className='flex-col flex items-center bg-red-200 rounded-xl p-10'>
+                    <div className='shadow-2xl flex-col flex items-center bg-red-200 rounded-xl p-10'>
                         <h1><HiAcademicCap className='h-10 w-10' /></h1>
                         <h1 className='text-2xl font-bold'>Creative</h1>
                         <h1 className=' text-center mt-5 italic'>Toys that involve arts and crafts, such as drawing, painting, or sculpting materials, provide an outlet for creative expression. They allow children to explore different mediums, experiment with colors and shapes, and develop their artistic abilities.</h1>
@@ -217,16 +217,16 @@ const Main = () => {
                             <img src="https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg" alt="Shoes" className="rounded-xl" />
                         </figure>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-3xl">Watson</h2>
+                            <h2 className="card-title text-3xl">Smith</h2>
                             <p className="italic">"The educational toy page is a treasure trove of learning opportunities! The range of toys available is impressive, covering various subjects and age groups. As a homeschooling parent, I appreciate the selection of STEM toys that promote critical thinking and problem-solving skills."</p>
                         </div>
                     </div>
-                    <div data-aos="fade-up" className="card w-96 bg-base-100 shadow-xl">
+                    <div data-aos="fade-up" className=" card w-96 bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src="https://img.freepik.com/free-photo/headshot-attractive-man-smiling-pleased-looking-intrigued-standing-blue-background_1258-65468.jpg" alt="Shoes" className="rounded-xl" />
                         </figure>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-3xl">Watson</h2>
+                            <h2 className="card-title text-3xl">Jackson</h2>
                             <p className="italic">"I stumbled upon the educational toy page while searching for interactive toys for my toddler, and I'm thrilled with my discovery! The page offers an extensive collection of toys that are both entertaining and educational. My child is engaged for hours with the hands-on learning experiences provided by these toys." </p>
                         </div>
                     </div>
