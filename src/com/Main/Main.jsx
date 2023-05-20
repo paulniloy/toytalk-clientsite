@@ -181,7 +181,7 @@ const Main = () => {
             </div>
             <div className='m-20'>
                 <p data-aos="fade-in" className='text-4xl text-center font-bold'>Here how it works</p>
-                <div data-aos="zoom-in" className='flex justify-center gap-20 m-20'>
+                <div data-aos="zoom-in" className='flex flex-col justify-center gap-20'>
                     <div className='shadow-2xl flex-col flex items-center bg-red-200 rounded-xl p-10'>
                         <h1><HiLightningBolt className='h-10 w-10' /></h1>
                         <h1 className='text-2xl font-bold'>Encouraging</h1>
@@ -199,13 +199,13 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='m-20'>
+            <div className=''>
                 <div>
                     <h1 data-aos="fade-right" className='text-4xl font-bold text-center'>Customers Reviews</h1>
                 </div>
                 <div className='mt-20 grid grid-cols-1 sm:grid-cols-3'>
                     <div data-aos="fade-up" className="card w-96 bg-base-100 shadow-xl">
-                        <figure className="px-10 pt-10">
+                        <figure className="">
                             <img src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg" alt="Shoes" className="rounded-xl" />
                         </figure>
                         <div className="card-body items-center text-center">
