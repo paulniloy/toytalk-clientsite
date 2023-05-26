@@ -26,7 +26,7 @@ const Mytoys = () => {
     const handledelete = (_id) => {
         const process = confirm("Are you sure to delete?");
         if (process) {
-            fetch(`https://serversite-pi.vercel.app/${_id}`, {
+            fetch(`https://serversite-pi.vercel.app/alltoys/${_id}`, {
                 method: "DELETE",
                 headers: {
                     'content-type': 'application/json'
@@ -35,6 +35,7 @@ const Mytoys = () => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data.deletedCount);
 
                     if (data.deletedCount > 0) {
                         const remaining = mytoys.filter(toy => toy._id !== _id);
